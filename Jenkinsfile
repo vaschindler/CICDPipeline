@@ -24,7 +24,7 @@ node {
     }
 
     stage('Push image') {
-       withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable:'dockerbuildapp', passwordVariable: 'zDZsLWT7D4bHWdm')]){
+       withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable:'USER', passwordVariable: 'PASSWORD')]){
         def registry_url = "registry.hub.docker.com/"
         bat "docker login -u $USER $PASSWORD ${registry_url}"
         docker.withRegistry("http://${registry_url}", "docker-hub-credentials") {
