@@ -9,24 +9,28 @@ node {
     stage('Clone repository') {
         checkout scm
     }
+    stage('Test repository') {
+         env.NODE_ENV = "test"
+         print "Environment will be : ${env.NODE_ENV}"
+         sh 'node -v'
+         sh 'npm prune'
+         sh 'npm install'
+         sh 'npm start main.js'
+         sh 'npm test'
+    }
 
     stage('Build image') {
         app = docker.build("dockerbuildapp/test")
     }
 
     stage('Test image') {
-         env.NODE_ENV = "test"
-         print "Environment will be : ${env.NODE_ENV}"
-         sh 'node -v'
-         sh 'npm prune'
-         sh 'npm install'
-         sh 'npm test'
+         /*test*/
     }
 
     stage('Push image') {
       docker.withRegistry('http://registry.hub.docker.com/', 'docker-hub-credentials') {
       app.push("${env.BUILD_NUMBER}")
-      app.push("latest")   
+      app.push("latest")
    }
     }
 
