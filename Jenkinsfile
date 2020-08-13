@@ -38,7 +38,7 @@ node {
     }
     stage('Deployment'){
         echo 'locally deploy docker to kubernetes'
-        sh'/usr/bin/kubectl apply -f deployment.yml'
+        sh'/usr/bin/kubectl apply -f deployment.yaml'
     }
     stage('Cleanup'){
       echo 'prune and cleanup'
