@@ -4,7 +4,7 @@
   "description": "A Hello World HTTP server",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --reporter list",
     "start": "node main.js"
   },
   "keywords": [
