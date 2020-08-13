@@ -5,7 +5,7 @@ metadata:
 spec:
    containers:
    - name: node-pod
-     image: dockerbuildapp/test
+     image: dockerbuildapp/test:latest
      ports:
      - containerPort: 3000        
      imagePullPolicy: Always
