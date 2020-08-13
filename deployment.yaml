@@ -5,10 +5,10 @@ metadata:
 spec:
    containers:
    - name: node-pod
-     image: dockerbuildapp/test:latest
+     image: dockerbuildapp/test
      ports:
      - containerPort: 3000        
-     imagePullPolicy: Always
+     imagePullPolicy: Latest
      command: ["/bin/sh", "-ec", "sleep 1000"]
    imagePullSecrets:
    - name: regcred
