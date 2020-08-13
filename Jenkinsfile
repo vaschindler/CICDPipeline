@@ -15,7 +15,7 @@ node {
          sh 'node -v'
          sh 'npm prune'
          sh 'npm install'
-         sh 'npm test'
+         sh 'npm test &'
     }
 
     stage('Build image') {
