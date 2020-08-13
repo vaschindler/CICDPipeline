@@ -11,12 +11,13 @@ node {
 
         checkout scm
     }
+    tag = VersionNumber (versionNumberString: '${BUILD_DATE_FORMATTED, "yyyyMMdd"}-develop-${BUILDS_TODAY}')
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
-        app = docker.build("dockerbuildapp/test")
+        tag = VersionNumber (versionNumberString: '${BUILD_DATE_FORMATTED, "yyyyMMdd"}-develop-${BUILDS_TODAY}')
+        app = docker.build("dockerbuildapp/test:"+tag)
     }
 
     stage('Test image') {
