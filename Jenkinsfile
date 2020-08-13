@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("getintodevops/hellonode")
+        app = docker.build("dockerbuildapp/test")
     }
 
     stage('Test image') {
@@ -24,13 +24,11 @@ node {
     }
 
     stage('Push image') {
-       withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable:'USER', passwordVariable: 'PASSWORD')]){
-        def registry_url = "registry.hub.docker.com/"
-        bat "docker login -u $USER $PASSWORD ${registry_url}"
-        docker.withRegistry("http://${registry_url}", "docker-hub-credentials") {
-            bat "docker push username/foldername:build"
+      docker.withRegistry('http://registry.hub.docker.com/', 'docker-hub-credentials') {
+      app.push()
+   
           
-        }
+        
     }
 }
 }
