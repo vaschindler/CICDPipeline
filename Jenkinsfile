@@ -22,10 +22,6 @@ node {
         app = docker.build("dockerbuildapp/test")
     }
 
-    stage('Test image') {
-         /*test*/
-    }
-
     stage('Push image') {
       docker.withRegistry('http://registry.hub.docker.com/', 'docker-hub-credentials') {
       app.push("${env.BUILD_NUMBER}")
