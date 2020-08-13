@@ -11,8 +11,7 @@ node {
     }
 
     stage('Build image') {
-        /* Use semantic versioning */
-        app = docker.build("dockerbuildapp/test:")
+        app = docker.build("dockerbuildapp/test")
     }
 
     stage('Test image') {
