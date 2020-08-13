@@ -15,7 +15,6 @@ node {
          sh 'node -v'
          sh 'npm prune'
          sh 'npm install'
-         sh 'npm start main.js'
          sh 'npm test'
     }
 
