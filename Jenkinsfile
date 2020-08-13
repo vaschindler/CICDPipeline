@@ -25,7 +25,7 @@ node {
          sh 'node -v'
          sh 'npm prune'
          sh 'npm install'
-         sh 'mocha'
+         sh 'npm test'
     }
 
     stage('Push image') {
