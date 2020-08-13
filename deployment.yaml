@@ -8,7 +8,7 @@ spec:
      image: dockerbuildapp/test
      ports:
      - containerPort: 3000        
-     imagePullPolicy: latest
+     imagePullPolicy: Always
      command: ["/bin/sh", "-ec", "sleep 1000"]
    imagePullSecrets:
    - name: regcred
