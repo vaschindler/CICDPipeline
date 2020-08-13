@@ -3,7 +3,7 @@ node {
     
     properties([
             disableConcurrentBuilds(),
-            buildDiscarder(logRotator(numToKeepStr: '0'))
+            buildDiscarder(logRotator(numToKeepStr: '1'))
     ])
 
     stage('Clone repository') {
