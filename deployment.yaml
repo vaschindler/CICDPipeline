@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: node-pod
+spec:
+   containers:
+   - name: node-pod
+     image: dockerbuildapp/test:latest
+     ports:
+     - containerPort: 3000        
+     imagePullPolicy: Always
+     command: ["/bin/sh", "-ec", "sleep 1000"]
+   imagePullSecrets:
+   - name: regcred
