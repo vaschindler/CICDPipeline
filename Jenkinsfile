@@ -1,5 +1,10 @@
 node {
     def app
+    
+    properties([
+            disableConcurrentBuilds(),
+            buildDiscarder(logRotator(numToKeepStr: '0'))
+    ])
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
