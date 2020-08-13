@@ -1,7 +1,6 @@
 var supertest = require("supertest");
 var should = require("should");
 
-// This agent refers to PORT where the program is running.
 
 var server = supertest.agent("http://localhost:3000");
 
